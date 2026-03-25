@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>履歷表</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 10px 0;
+        }
+
+        .info {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .email {
+            color: #007BFF;
+            cursor: pointer;
+        }
+
+        .email:hover {
+            text-decoration: underline;
+        }
+
+        .copy-msg {
+            color: green;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="resume">
+    <!-- 照片 (請放在 images/profile.jpg) -->
+    <img src="images/profile.jpg" alt="個人照片">
+
+    <h1>楊美女</h1>
+
+    <div class="info">學號：114018038</div>
+
+    <div class="info">
+        電子郵件：
+        <span class="email" onclick="copyEmail()">aqc7228@gmail.com</span>
+    </div>
+
+    <div class="copy-msg" id="msg">已複製 Email！</div>
+</div>
+
+<script>
+    // 載入動畫
+    window.onload = function() {
+        document.getElementById("resume").classList.add("show");
+    };
+
+    // 複製 Email
+    function copyEmail() {
+        const email = "aqc7228@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            const msg = document.getElementById("msg");
+            msg.style.display = "block";
+            setTimeout(() => {
+                msg.style.display = "none";
+            }, 2000);
+        });
+    }
+</script>
+
+</body>
+</html>
