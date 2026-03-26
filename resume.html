@@ -61,6 +61,117 @@
             font-size: 14px;
             display: none;
         }
+        body {
+    font-family: "Microsoft JhengHei", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    margin: 0;
+}
+
+/* 外框 */
+.wrapper {
+    display: flex;
+    max-width: 1000px;
+    margin: 50px auto;
+    gap: 20px;
+}
+
+/* 左側 */
+.sidebar {
+    width: 250px;
+    background: #fff7e6;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 主內容 */
+.container {
+    flex: 1;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 照片 */
+img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #ffe0b2;
+    margin-bottom: 15px;
+}
+
+/* 標題 */
+h1 {
+    margin: 10px 0;
+    color: #2e7d32;
+}
+
+/* 資訊 */
+.info {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* email */
+.email {
+    color: #ff7043;
+    cursor: pointer;
+}
+
+.email:hover {
+    text-decoration: underline;
+}
+
+/* 複製提示 */
+.copy-msg {
+    color: green;
+    font-size: 14px;
+    display: none;
+}
+
+/* 左側標題 */
+.side-title {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #ff7043;
+}
+
+/* 技能條 */
+.bar {
+    background: #ddd;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 10px;
+    background: linear-gradient(to right, #ffb74d, #ff7043);
+}
+
+/* 標籤 */
+.tag {
+    display: inline-block;
+    background: #ff7043;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+}
     </style>
 </head>
 <body>
