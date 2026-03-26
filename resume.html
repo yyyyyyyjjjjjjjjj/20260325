@@ -1,97 +1,74 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>履歷表</title>
-    <style>
-        
-        body {
+<meta charset="UTF-8">
+<title>履歷表</title>
+
+<style>
+body {
     font-family: "Microsoft JhengHei", sans-serif;
     background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     margin: 0;
 }
 
-/* 外框 */
 .wrapper {
     display: flex;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 50px auto;
     gap: 20px;
 }
 
 /* 左側 */
 .sidebar {
-    width: 250px;
+    width: 260px;
     background: #fff7e6;
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* 主內容 */
+/* 右側 */
 .container {
     flex: 1;
     background: white;
     border-radius: 20px;
     padding: 30px;
-    text-align: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
 }
 
-.container.show {
-    opacity: 1;
-    transform: translateY(0);
+/* 頭部 */
+.header {
+    text-align: center;
 }
 
-/* 照片 */
 img {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
     border: 6px solid #ffe0b2;
-    margin-bottom: 15px;
 }
 
-/* 標題 */
 h1 {
     margin: 10px 0;
     color: #2e7d32;
 }
 
-/* 資訊 */
-.info {
-    font-size: 18px;
-    margin: 10px 0;
+/* About */
+.about {
+    background: #ffe4ec;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
 }
 
-/* email */
-.email {
-    color: #ff7043;
-    cursor: pointer;
-}
-
-.email:hover {
-    text-decoration: underline;
-}
-
-/* 複製提示 */
-.copy-msg {
-    color: green;
-    font-size: 14px;
-    display: none;
-}
-
-/* 左側標題 */
-.side-title {
+/* 區塊標題 */
+.section-title {
     font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
     color: #ff7043;
+    margin-top: 20px;
+    border-bottom: 2px solid #ffccbc;
+    padding-bottom: 5px;
 }
 
 /* 技能條 */
@@ -107,52 +84,144 @@ h1 {
     background: linear-gradient(to right, #ffb74d, #ff7043);
 }
 
-/* 標籤 */
-.tag {
-    display: inline-block;
-    background: #ff7043;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
+/* 經歷卡片 */
+.card {
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 10px;
     margin-top: 10px;
 }
-    </style>
+
+/* email */
+.email {
+    color: #ff7043;
+    cursor: pointer;
+}
+
+.copy-msg {
+    color: green;
+    font-size: 14px;
+    display: none;
+}
+</style>
 </head>
+
 <body>
 
+<div class="wrapper">
+
+<!-- 左側 -->
+<div class="sidebar">
+
+    <div class="section-title">Skills</div>
+
+    Motion Design
+    <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
+
+    Graphic Design
+    <div class="bar"><div class="bar-fill" style="width:70%"></div></div>
+
+    Digital Art
+    <div class="bar"><div class="bar-fill" style="width:75%"></div></div>
+
+    HTML / CSS
+    <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
+
+    <div class="section-title">Language</div>
+
+    English
+    <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
+
+    Japanese
+    <div class="bar"><div class="bar-fill" style="width:60%"></div></div>
+
+</div>
+
+<!-- 右側 -->
 <div class="container" id="resume">
-    <!-- 照片 (請放在 images/profile.jpg) -->
-    <img src="images/photo.jpg" alt="個人照片">
 
-    <h1>楊美女</h1>
+    <div class="header">
+        <img src="images/photo.jpg" alt="個人照片">
+        <h1>楊美女</h1>
 
-    <div class="info">學號：114018038</div>
+        <div>學號：114018038</div>
 
-    <div class="info">
-        電子郵件：
-        <span class="email" onclick="copyEmail()">aqc7228@gmail.com</span>
+        <div>
+            Email：
+            <span class="email" onclick="copyEmail()">aqc7228@gmail.com</span>
+        </div>
+
+        <div class="copy-msg" id="msg">已複製 Email！</div>
     </div>
 
-    <div class="copy-msg" id="msg">已複製 Email！</div>
+    <!-- About -->
+    <div class="about">
+        我是一名對設計與創意充滿熱情的學生，擅長圖像設計與數位創作，
+        喜歡透過視覺傳達想法，並持續學習前端技術提升作品表現。
+    </div>
+
+    <!-- 教育 -->
+    <div class="section-title">Education</div>
+
+    <div class="card">
+        2023 - 現在<br>
+        某某大學 資訊相關科系
+    </div>
+
+    <div class="card">
+        2020 - 2023<br>
+        高中
+    </div>
+
+    <!-- 經驗 -->
+    <div class="section-title">Experience</div>
+
+    <div class="card">
+        校內專題製作（2025）<br>
+        負責 UI 設計與前端頁面製作
+    </div>
+
+    <div class="card">
+        社團美宣<br>
+        設計活動海報與社群圖片
+    </div>
+
+    <!-- 作品 -->
+    <div class="section-title">Projects</div>
+
+    <div class="card">
+        個人網站<br>
+        使用 HTML / CSS 製作個人作品集
+    </div>
+
+    <div class="card">
+        海報設計<br>
+        參與校內比賽並完成多張視覺作品
+    </div>
+
+    <!-- 聯絡 -->
+    <div class="section-title">Contact</div>
+
+    <div class="card">
+        電話：123-456-789<br>
+        Email：aqc7228@gmail.com
+    </div>
+
+</div>
+
 </div>
 
 <script>
-    // 載入動畫
-    window.onload = function() {
-        document.getElementById("resume").classList.add("show");
-    };
-
-    // 複製 Email
-    function copyEmail() {
-        const email = "aqc7228@gmail.com";
-        navigator.clipboard.writeText(email).then(() => {
-            const msg = document.getElementById("msg");
-            msg.style.display = "block";
-            setTimeout(() => {
-                msg.style.display = "none";
-            }, 2000);
-        });
-    }
+function copyEmail() {
+    const email = "aqc7228@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+        const msg = document.getElementById("msg");
+        msg.style.display = "block";
+        setTimeout(() => {
+            msg.style.display = "none";
+        }, 2000);
+    });
+}
 </script>
 
 </body>
