@@ -145,10 +145,6 @@ h1 {
     
         <h1>楊美女</h1>
 
-        <audio controls>
-
-  <source src="mp3/bg.mp3" type="audio/mpeg">
-</audio>
 
         <div>學號：114018038</div>
 
@@ -229,6 +225,23 @@ function copyEmail() {
     });
 }
 </script>
+<audio id="bgm" autoplay loop playsinline>
+  <source src="mp3/bg.mp3" type="audio/mpeg">
+</audio>
 
+<script>
+  const audio = document.getElementById("bgm");
+
+  // 嘗試直接播放
+  audio.play().catch(() => {
+    // 若被擋，快速解除靜音再播放
+    audio.muted = true;
+    audio.play();
+
+    setTimeout(() => {
+      audio.muted = false;
+    }, 100);
+  });
+</script>
 </body>
 </html>
